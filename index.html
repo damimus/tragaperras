@@ -12,8 +12,9 @@
       min-height: 100vh;
       margin: 0;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: flex-start;
+      padding-top: 20px;
     }
 
     .contenedor-principal {
@@ -24,13 +25,13 @@
     }
 
     #mensaje {
-      width: 360px;
-      height: 110px;
+      width: 300px;
+      height: 95px;
       border: 3px solid gold;
       border-radius: 15px;
       background: black;
       color: white;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bold;
       display: flex;
       align-items: center;
@@ -42,7 +43,6 @@
       white-space: pre-line;
     }
 
-    /* ✅ BOTÓN DE PRUEBA */
     #botonPrueba {
       display: none;
       padding: 12px 30px;
@@ -54,15 +54,16 @@
       font-weight: bold;
       cursor: pointer;
       box-shadow: 0 0 12px violet;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .maquina {
       background: linear-gradient(180deg, #8b0000, #300000);
       border: 8px solid gold;
       border-radius: 25px;
-      padding: 25px 30px 30px;
+      padding: 18px 15px 22px;
       box-shadow: 0 0 25px gold;
+      width: 300px;
       text-align: center;
       position: relative;
     }
@@ -85,13 +86,14 @@
 
     #slot-container {
       display: flex;
-      gap: 20px;
+      justify-content: center;
+      gap: 12px;
       margin-bottom: 20px;
     }
 
     .slot {
-      width: 120px;
-      height: 120px;
+      width: 85px;
+      height: 85px;
       background: white;
       border-radius: 15px;
       display: flex;
@@ -102,14 +104,16 @@
     }
 
     .slot img {
-      width: 100px;
-      height: 100px;
+      width: 70px;
+      height: 70px;
       object-fit: contain;
+      display: block;
+      margin: auto;
     }
 
     button {
-      padding: 15px 40px;
-      font-size: 20px;
+      padding: 12px 28px;
+      font-size: 18px;
       border: none;
       border-radius: 50px;
       background: radial-gradient(circle, #00ff00, #007700);
@@ -125,34 +129,28 @@
       box-shadow: none;
       cursor: not-allowed;
     }
-    /* ✅ AJUSTE PARA MÓVILES */
-@media (max-width: 480px) {
 
-  .maquina {
-    width: calc(100% - 30px);   /* deja márgenes laterales */
-    max-width: 360px;          /* no más grande que la caja de texto */
-    padding: 20px 15px 25px;   /* más compacto */
-  }
+    @media (max-width: 480px) {
+      #mensaje {
+        width: 280px;
+        height: 90px;
+        font-size: 17px;
+      }
 
-  #slot-container {
-    gap: 12px; /* menos separación entre slots */
-  }
+      .maquina {
+        width: 280px;
+      }
 
-  .slot {
-    width: 90px;
-    height: 90px;
-  }
+      .slot {
+        width: 80px;
+        height: 80px;
+      }
 
-  .slot img {
-    width: 75px;
-    height: 75px;
-  }
-
-  button {
-    font-size: 18px;
-    padding: 12px 30px;
-  }
-}
+      .slot img {
+        width: 65px;
+        height: 65px;
+      }
+    }
   </style>
 </head>
 
@@ -162,7 +160,6 @@
 
     <div id="mensaje">🎰 Pulsa TIRAR 🎰</div>
 
-    <!-- ✅ BOTÓN DE PRUEBA -->
     <button id="botonPrueba">🎯 HACER PRUEBA</button>
 
     <div class="maquina">
@@ -175,7 +172,6 @@
 
       <button id="tirar">TIRAR</button>
 
-      <!-- 🎵 SONIDOS -->
       <audio id="sonido" src="slot.mp3"></audio>
       <audio id="ganar" src="win.mp3"></audio>
       <audio id="perder" src="lose.mp3"></audio>
@@ -189,7 +185,7 @@
     const pruebas = [
       "💃 Bailar una bachata",
       "🎤 Cantar una canción",
-      "👩‍🏫 Su Directora manda la prueba"
+      "👩‍🏫 Su directora elige la prueba"
     ];
 
     const img1 = document.getElementById("img1");
@@ -209,7 +205,7 @@
 
     btn.addEventListener("click", () => {
       numeroTirada++;
-      botonPrueba.style.display = "none"; // siempre se oculta al tirar
+      botonPrueba.style.display = "none";
 
       mensaje.textContent = `🎲 Tirada ${numeroTirada}`;
       mensaje.style.color = "white";
@@ -237,16 +233,14 @@
       const prueba = pruebas[Math.floor(Math.random() * pruebas.length)];
       mensaje.textContent = `🎯 PRUEBA:\n${prueba}`;
       mensaje.style.color = "yellow";
-
-      botonPrueba.style.display = "none"; // se vuelve a ocultar tras usarlo
+      botonPrueba.style.display = "none";
     });
 
     function aplicarTiradaControlada() {
-
       if (numeroTirada === 6) {
         ponerTresIguales("caradamian.png");
-        mostrarResultado("¡PACO! SUPERA LA PRUEBA\nPARA SEGUIR JUGANDO", "red", true);
-        botonPrueba.style.display = "inline-block"; // ✅ APARECE BOTÓN
+        mostrarResultado("PACO,DEBES SUPERAR LA PRUEBA\nPARA SEGUIR JUGANDO", "red", true);
+        botonPrueba.style.display = "inline-block";
       } 
       else if (numeroTirada === 11) {
         ponerTresIguales("foto2.png");
@@ -254,8 +248,8 @@
       } 
       else if (numeroTirada === 15) {
         ponerTresIguales("caradamian.png");
-        mostrarResultado("¡PACO!SUPERA LA PRUEBA\nPARA JUGAR OTRA VEZ", "red", true);
-        botonPrueba.style.display = "inline-block"; // ✅ VUELVE A APARECER
+        mostrarResultado("¡PACO,SUPERA LA PRUEBA\nPARA JUGAR OTRA VEZ", "red", true);
+        botonPrueba.style.display = "inline-block";
       } 
       else if (numeroTirada === 20) {
         ponerTresIguales("carapaco.png");
