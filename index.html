@@ -125,6 +125,34 @@
       box-shadow: none;
       cursor: not-allowed;
     }
+    /* ✅ AJUSTE PARA MÓVILES */
+@media (max-width: 480px) {
+
+  .maquina {
+    width: calc(100% - 30px);   /* deja márgenes laterales */
+    max-width: 360px;          /* no más grande que la caja de texto */
+    padding: 20px 15px 25px;   /* más compacto */
+  }
+
+  #slot-container {
+    gap: 12px; /* menos separación entre slots */
+  }
+
+  .slot {
+    width: 90px;
+    height: 90px;
+  }
+
+  .slot img {
+    width: 75px;
+    height: 75px;
+  }
+
+  button {
+    font-size: 18px;
+    padding: 12px 30px;
+  }
+}
   </style>
 </head>
 
@@ -161,7 +189,7 @@
     const pruebas = [
       "💃 Bailar una bachata",
       "🎤 Cantar una canción",
-      "👩‍🏫 Su directora elige la prueba"
+      "👩‍🏫 Su Directora manda la prueba"
     ];
 
     const img1 = document.getElementById("img1");
@@ -217,7 +245,7 @@
 
       if (numeroTirada === 6) {
         ponerTresIguales("caradamian.png");
-        mostrarResultado("¡PACO, HAS PERDIDO!\nDEBES SUPERAR LA PRUEBA\nPARA SEGUIR JUGANDO", "red", true);
+        mostrarResultado("¡PACO! SUPERA LA PRUEBA\nPARA SEGUIR JUGANDO", "red", true);
         botonPrueba.style.display = "inline-block"; // ✅ APARECE BOTÓN
       } 
       else if (numeroTirada === 11) {
@@ -226,7 +254,7 @@
       } 
       else if (numeroTirada === 15) {
         ponerTresIguales("caradamian.png");
-        mostrarResultado("¡PACO, HAS VUELTO A PERDER!\nSUPERA LA PRUEBA\nPARA JUGAR OTRA VEZ", "red", true);
+        mostrarResultado("¡PACO!SUPERA LA PRUEBA\nPARA JUGAR OTRA VEZ", "red", true);
         botonPrueba.style.display = "inline-block"; // ✅ VUELVE A APARECER
       } 
       else if (numeroTirada === 20) {
