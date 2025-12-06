@@ -130,6 +130,29 @@
       cursor: not-allowed;
     }
 
+    /* ✅ TEXTO CASINO */
+    .casino-container {
+      margin-top: 80px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .casino-line {
+      width: 200px;
+      height: 3px;
+      background: gold;
+      margin: 6px auto;
+      box-shadow: 0 0 8px gold;
+    }
+
+    .casino-text {
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 4px;
+      color: gold;
+      text-shadow: 0 0 10px gold, 0 0 20px orange;
+    }
+
     @media (max-width: 480px) {
       #mensaje {
         width: 280px;
@@ -149,6 +172,14 @@
       .slot img {
         width: 65px;
         height: 65px;
+      }
+
+      .casino-text {
+        font-size: 24px;
+      }
+
+      .casino-line {
+        width: 160px;
       }
     }
   </style>
@@ -178,6 +209,14 @@
       <audio id="aplausos" src="aplausos.mp3"></audio>
 
     </div>
+
+    <!-- ✅ TEXTO CASINO AL FINAL -->
+    <div class="casino-container">
+      <div class="casino-line"></div>
+      <div class="casino-text">PAKASINO</div>
+      <div class="casino-line"></div>
+    </div>
+
   </div>
 
   <script>
@@ -239,7 +278,7 @@
     function aplicarTiradaControlada() {
       if (numeroTirada === 6) {
         ponerTresIguales("caradamian.png");
-        mostrarResultado("PACO,DEBES SUPERAR LA PRUEBA\nPARA SEGUIR JUGANDO", "red", true);
+        mostrarResultado("¡PACO, HAS PERDIDO!\nDEBES SUPERAR LA PRUEBA\nPARA SEGUIR JUGANDO", "red", true);
         botonPrueba.style.display = "inline-block";
       } 
       else if (numeroTirada === 11) {
@@ -248,7 +287,7 @@
       } 
       else if (numeroTirada === 15) {
         ponerTresIguales("caradamian.png");
-        mostrarResultado("¡PACO,SUPERA LA PRUEBA\nPARA JUGAR OTRA VEZ", "red", true);
+        mostrarResultado("¡PACO, HAS VUELTO A PERDER!\nSUPERA LA PRUEBA\nPARA JUGAR OTRA VEZ", "red", true);
         botonPrueba.style.display = "inline-block";
       } 
       else if (numeroTirada === 20) {
