@@ -213,7 +213,7 @@
     <!-- ✅ TEXTO CASINO AL FINAL -->
     <div class="casino-container">
       <div class="casino-line"></div>
-      <div class="casino-text">PAKASINO</div>
+      <div class="casino-text">JACKPAK</div>
       <div class="casino-line"></div>
     </div>
 
@@ -224,7 +224,7 @@
     const pruebas = [
       "💃 Bailar una bachata",
       "🎤 Cantar una canción",
-      "👩‍🏫 Su directora elige la prueba"
+      "👩‍🏫 Su DIRECTORA elige la prueba"
     ];
 
     const img1 = document.getElementById("img1");
@@ -278,21 +278,21 @@
     function aplicarTiradaControlada() {
       if (numeroTirada === 6) {
         ponerTresIguales("caradamian.png");
-        mostrarResultado("¡PACO, HAS PERDIDO!\nDEBES SUPERAR LA PRUEBA\nPARA SEGUIR JUGANDO", "red", true);
+        mostrarResultado("PACO, debes superar la prueba\npara seguir jugando", "red", true);
         botonPrueba.style.display = "inline-block";
       } 
       else if (numeroTirada === 11) {
         ponerTresIguales("foto2.png");
-        mostrarResultado("TUS COMPIS RECIBEN UN REGALO\nBÚSCALO EN EL CAJON DE LA CAJERA", "violet", true);
+        mostrarResultado("¡¡Regalo para todos!!\nbúscalo en el cajón de la CAJERA ", "violet", true);
       } 
       else if (numeroTirada === 15) {
         ponerTresIguales("caradamian.png");
-        mostrarResultado("¡PACO, HAS VUELTO A PERDER!\nSUPERA LA PRUEBA\nPARA JUGAR OTRA VEZ", "red", true);
+        mostrarResultado("¡PACO, PACO, PACO!\nSupera la prueba para\n SEGUIR JUGANDO", "red", true);
         botonPrueba.style.display = "inline-block";
       } 
       else if (numeroTirada === 20) {
         ponerTresIguales("carapaco.png");
-        mostrarResultado("🏆 ¡PACO, HAS GANADO! 🏆\nTIENES UN REGALO EN EL CAJON DE TU HABILITADO\n🎰 FIN DEL JUEGO", "lime", true);
+        mostrarResultado("🏆 ¡PACO, HAS GANADO! 🏆\nTIENES UN REGALO EN EL CAJON DE TU HABILITADO\n🎰 FIN DEL JUEGO 🎰 ", "lime", true);
 
         ganar.play();
         aplausos.play();
